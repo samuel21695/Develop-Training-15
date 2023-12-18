@@ -45,4 +45,4 @@ export default Carousel;
 const Example = () => {
   return <Carousel fetchProducts={fetchProducts} />};
 
-export default Example;
+console.log(Example);
