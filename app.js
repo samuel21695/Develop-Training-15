@@ -18,8 +18,31 @@ const Carousel = ({ fetchProducts }) => {
   useEffect(() => {
     const loadProducts = async () => {
       const data = await fetchProducts();
-      setProducets(data);
+      setProducts(data);
     };
-    loadProdcuts();
+    loadProducts();
   }, [fetchProducts]);
-}
+
+  if (products.length === 0) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <div>
+      <ul>
+        { products.map((product) => (
+          <li key={product.id}>
+            {product.title} - {product.price}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Carousel;
+
+const Example = () => {
+  return <Carousel fetchProducts={fetchProducts} />};
+
+export default Example;
