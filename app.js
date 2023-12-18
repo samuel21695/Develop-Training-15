@@ -11,3 +11,15 @@ const fetchProducts = async () => {
     }, 500);
   });
 };
+
+const Carousel = ({ fetchProducts }) => {
+  const [products, setProducets] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      const data = await fetchProducts();
+      setProducets(data);
+    };
+    loadProdcuts();
+  }, [fetchProducts]);
+}
